@@ -1,0 +1,4 @@
+{
+	"cmd": ["pawno/pawncc.exe", "-i=../include", "gamemodes/${folder/^.*\\\\//}.pwn", "-;+"],
+	"working_dir": "${project_path:${folder}}"
+}
