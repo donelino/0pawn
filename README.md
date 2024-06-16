@@ -9,3 +9,4 @@
 	> **Путь установки файла**: C:\Users\\**_user_**\AppData\Roaming\Sublime Text\Packages\User\
 4. Компилируем мод.
 5. Запускаем сервер для проверки.
+6. Если ещё нет клиента SA:MP, то скачиваем: [Скачать](https://samp.world/)
