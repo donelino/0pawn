@@ -10,6 +10,60 @@ main()
 
 public OnGameModeInit ()
 {
+	new x = 1; // Присваивание переменной x значения 1
+	new y = 5; // Присваивание переменной y значения 5
+
+	new a = x + y; // В результате сложения в перменной a будет 6
+	
+	printf("Значение переменной X = %d, а переменной Y = %d", x, y);
+
+	printf("Сумма значений = %d", a);
+
+	a = 5;
+
+	printf("Новое значение = %d", a);
+
+	a = x - y;
+
+	printf("Разница значений = %d", a);
+
+	x = 2;
+	y = 4;
+
+	a = x * y; // 8
+	printf("a = %d", a);
+
+	a = y / x;
+
+	printf("a = %d", a);
+
+	x = 10;
+	y = 3;
+
+	a = x % y; // 1
+	printf("Остаток: %d", a);
+
+	// x = x + 1;
+	x++; // 11
+
+
+	// y = y - 1;
+	y--; // 2
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
 	SetGameModeText("0Pawn by Don_Elino");
 	ShowNameTags(1);
 	EnableStuntBonusForAll(0);
