@@ -10,22 +10,22 @@ main()
 
 public OnGameModeInit ()
 {
-	new x = 1; // РџСЂРёСЃРІР°РёРІР°РЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№ x Р·РЅР°С‡РµРЅРёСЏ 1
-	new y = 5; // РџСЂРёСЃРІР°РёРІР°РЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№ y Р·РЅР°С‡РµРЅРёСЏ 5
+	new x = 1; // Присваивание переменной x значения 1
+	new y = 5; // Присваивание переменной y значения 5
 
-	new a = x + y; // Р’ СЂРµР·СѓР»СЊС‚Р°С‚Рµ СЃР»РѕР¶РµРЅРёСЏ РІ РїРµСЂРјРµРЅРЅРѕР№ a Р±СѓРґРµС‚ 6
+	new a = x + y; // В результате сложения в перменной a будет 6
 	
-	printf("Р—РЅР°С‡РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№ X = %d, Р° РїРµСЂРµРјРµРЅРЅРѕР№ Y = %d", x, y);
+	printf("Значение переменной X = %d, а переменной Y = %d", x, y);
 
-	printf("РЎСѓРјРјР° Р·РЅР°С‡РµРЅРёР№ = %d", a);
+	printf("Сумма значений = %d", a);
 
 	a = 5;
 
-	printf("РќРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ = %d", a);
+	printf("Новое значение = %d", a);
 
 	a = x - y;
 
-	printf("Р Р°Р·РЅРёС†Р° Р·РЅР°С‡РµРЅРёР№ = %d", a);
+	printf("Разница значений = %d", a);
 
 	x = 2;
 	y = 4;
@@ -41,7 +41,7 @@ public OnGameModeInit ()
 	y = 3;
 
 	a = x % y; // 1
-	printf("РћСЃС‚Р°С‚РѕРє: %d", a);
+	printf("Остаток: %d", a);
 
 	// x = x + 1;
 	x++; // 11
@@ -88,7 +88,7 @@ public OnPlayerRequestClass (playerid, classid)
 		return SpawnPlayer(playerid);
 	}
 
-	SendClientMessage(playerid, 0xEAC700FF, " Добро пожаловать на курс {FF1100}0Pawn {EAC700}от {FF1100}Don_Elino{EAC700}!");
+	SendClientMessage(playerid, 0xEAC700FF, " ??? ????? ? ?? {FF1100}0Pawn {EAC700}? {FF1100}Don_Elino{EAC700}!");
 
 	SetPVarInt(playerid, "PlayerLoginStarted", 1);
 
@@ -108,7 +108,7 @@ public OnPlayerRequestSpawn (playerid)
 {
 	if (!IsValidPVar(playerid, "PlayerInGame"))
 	{
-		SendClientMessage(playerid, 0xAFAFAFFF, " Нельзя самому спавниться, я сам тебя заспавню!");
+		SendClientMessage(playerid, 0xAFAFAFFF, " ??? ??? ?????, ? ?? ?? ????!");
 		return 0;
 	}
 	return 1;
