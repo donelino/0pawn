@@ -34,7 +34,7 @@ public OnPlayerRequestClass (playerid, classid)
 		return SpawnPlayer(playerid);
 	}
 
-	SendClientMessage(playerid, 0xEAC700FF, " Добро пожаловать на курс {FF1100}0Pawn {EAC700}от {FF1100}Don_Elino{EAC700}!");
+	SendClientMessage(playerid, 0xEAC700FF, " Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ РЅР° РєСѓСЂСЃ {FF1100}0Pawn {EAC700}РѕС‚ {FF1100}Don_Elino{EAC700}!");
 
 	SetPVarInt(playerid, "PlayerLoginStarted", 1);
 
@@ -54,7 +54,7 @@ public OnPlayerRequestSpawn (playerid)
 {
 	if (!IsValidPVar(playerid, "PlayerInGame"))
 	{
-		SendClientMessage(playerid, 0xAFAFAFFF, " Нельзя самому спавниться, я сам тебя заспавню!");
+		SendClientMessage(playerid, 0xAFAFAFFF, " РќРµР»СЊР·СЏ СЃР°РјРѕРјСѓ СЃРїР°РІРЅРёС‚СЊСЃСЏ, СЏ СЃР°Рј С‚РµР±СЏ Р·Р°СЃРїР°РІРЅСЋ!");
 		return 0;
 	}
 	return 1;
