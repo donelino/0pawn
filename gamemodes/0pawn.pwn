@@ -10,6 +10,59 @@ main()
 
 public OnGameModeInit ()
 {
+	// Целочисленые
+	new money = 100_000; // 100000
+
+	// С плавающей точкой
+	new Float:hp = 50.5;
+
+	// Логическая переменная (всего два значения)
+	new bool:isLocked = true; // true / false
+	new bool:isAdmin = false;
+
+	/*
+
+	Для целочисленых - %d / %i
+	Плавающая точка - %f
+	Строка - %s
+	Одна буква - %c
+
+	*/
+	printf("Money: %d", money);
+
+	printf("HP: %f", hp);
+
+	printf("isLocked: %d", isLocked);
+	printf("isAdmin: %d", isAdmin);
+
+	new vehicles[3];
+	vehicles[0] = 50;
+	vehicles[1] = 100;
+
+	printf("Index 0: %d, Index 1: %d, Index 2: %d", vehicles[0], vehicles[1], vehicles[2]);
+	// A - 65, B - 66, C - 67... H - 72
+	// "Hello, World!"
+
+	new string[10] = "Hello!";
+
+	print(string);
+	printf("Value: %d", string[0]);
+	printf("Value: %c", string[0]);
+
+	printf("Text: %s", string);
+
+
+
+
+
+
+
+
+
+
+
+	
+
 	SetGameModeText("0Pawn by Don_Elino");
 	ShowNameTags(1);
 	EnableStuntBonusForAll(0);
