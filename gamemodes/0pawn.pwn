@@ -10,6 +10,7 @@ main()
 
 public OnGameModeInit ()
 {
+	// Логическая переменная (всего два значения)
 	SetGameModeText("0Pawn by Don_Elino");
 	ShowNameTags(1);
 	EnableStuntBonusForAll(0);
