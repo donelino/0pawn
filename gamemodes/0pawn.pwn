@@ -11,6 +11,117 @@ main()
 public OnGameModeInit ()
 {
 	// Логическая переменная (всего два значения)
+	new bool:isLocked = true; // true / false
+	new bool:isAdmin = false;
+
+	/*
+	
+	>    больше
+	>=   больше или равно
+	<    меньше
+	<=   меньше или равно
+	==   сравнение переменных
+	!=   не равно
+
+	*/
+
+	new money = 1_000_000;
+
+	if (money != 10000)
+	{
+		//
+	}
+
+	if (isAdmin)
+	{
+		print("Admin");
+	}
+	else
+	{
+		print("Not Admin");
+	}
+
+	// isAdmin == false
+	// !isAdmin
+	if (!isAdmin)
+	{
+
+	}
+	
+	/*
+		
+	И - &&
+	ИЛИ - ||
+
+	*/
+
+
+	if (isAdmin && isLocked)
+	{
+		print("You are admin and vehicle is locked");
+	}
+
+	if (isAdmin || isLocked)
+	{
+
+	}
+
+
+	new price = 1_000_000;
+
+	if (!isLocked || (!isAdmin && money >= price))
+	{
+		print("Поздравляю! Машина твоя!");
+	}
+	else
+	{
+		print("Тебе нельзя купить машину!");
+	}
+
+
+	// Домашнее задание:
+
+	// 1. Вывести текст "Машин достаточно", если их больше 50
+	new vehicles = 100;
+
+	// 2. Вывести текст "Вы не можете написать в репорт", если администрации нет онлайн или репортов больше или равно 10
+	// Вывести текст "Репорт отправлен" в ином случае
+	new adminsOnline = 8;
+	new reports = 10;
+
+	// 3.* Вывести текст "Чётное", если число чётное, "Не чётное", если не чётное
+	// Подсказка: Нужно придумать какие числа являются чётными, какие нет, и написать корректное условие
+	new value = 10;
+	new value2 = 11;
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
 	SetGameModeText("0Pawn by Don_Elino");
 	ShowNameTags(1);
 	EnableStuntBonusForAll(0);
