@@ -10,90 +10,90 @@ main()
 
 public OnGameModeInit ()
 {
-	// Логическая переменная (всего два значения)
-	new bool:isLocked = true; // true / false
-	new bool:isAdmin = false;
-
-	/*
-	
-	>    больше
-	>=   больше или равно
-	<    меньше
-	<=   меньше или равно
-	==   сравнение переменных
-	!=   не равно
-
-	*/
-
-	new money = 1_000_000;
-
-	if (money != 10000)
+	new level = 5;
+	if (level == 1)
 	{
-		//
+		print("Level 1");
 	}
-
-	if (isAdmin)
+	else if (level == 2)
 	{
-		print("Admin");
+		print("Level 2");
+	}
+	else if (level == 3)
+	{
+		print("Level 3");
+	}
+	else if (level >= 4 && level <= 6)
+	{
+		print("Level >= 4 && Level <= 6");
 	}
 	else
 	{
-		print("Not Admin");
+		print("Level Unknown");
 	}
 
-	// isAdmin == false
-	// !isAdmin
-	if (!isAdmin)
+
+	switch (level)
 	{
-
+		case 1: // if (level == 1)
+		{
+			print("(switch) Level 1");
+		}
+		case 2: // if (level == 2)
+		{
+			print("(switch) Level 2");
+		}
+		case 3: // if (level == 3)
+		{
+			print("(switch) Level 3");
+		}
+		case 4..6:
+		{
+			print("(switch) Level >= 4 && Level <= 6");
+		}
+		default:
+		{
+			print("(switch) Level Unknown");
+		}
 	}
+
+	new value = 0;
+	while (value < 10)
+	{
+		printf("Value = %d", value);
+		value++;
+	}
+
+	printf("Value after loop = %d", value);
+
+	value = 10;
+	do 
+	{
+		printf("Do while: %d", value);
+		value++;
+	} while (value < 10);
+
+
+	for (new i = 0; i < 10; i+=2)
+	{
+		printf("i = %d", i);
+	}
+
+
 	
-	/*
-		
-	И - &&
-	ИЛИ - ||
-
-	*/
 
 
-	if (isAdmin && isLocked)
-	{
-		print("You are admin and vehicle is locked");
-	}
-
-	if (isAdmin || isLocked)
-	{
-
-	}
 
 
-	new price = 1_000_000;
-
-	if (!isLocked || (!isAdmin && money >= price))
-	{
-		print("Поздравляю! Машина твоя!");
-	}
-	else
-	{
-		print("Тебе нельзя купить машину!");
-	}
 
 
-	// Домашнее задание:
 
-	// 1. Вывести текст "Машин достаточно", если их больше 50
-	new vehicles = 100;
 
-	// 2. Вывести текст "Вы не можете написать в репорт", если администрации нет онлайн или репортов больше или равно 10
-	// Вывести текст "Репорт отправлен" в ином случае
-	new adminsOnline = 8;
-	new reports = 10;
 
-	// 3.* Вывести текст "Чётное", если число чётное, "Не чётное", если не чётное
-	// Подсказка: Нужно придумать какие числа являются чётными, какие нет, и написать корректное условие
-	new value = 10;
-	new value2 = 11;
-	
+
+
+
+
 
 
 
