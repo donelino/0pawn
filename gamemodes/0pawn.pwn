@@ -7,89 +7,57 @@ main()
 {}
 
 
+GetArea (width, height)
+{
+	if (width < 0 || height < 0)
+	{
+		return 0;
+	}
+
+	new area = width * height;
+	return area;
+}
+
+IsEven (value)
+{
+	/*
+		Задание: Определить, является ли значение value чётным
+		Вернуть: Если чётное -   1
+		         Если нечётное - 0
+	*/
+    return 1;
+}
 
 public OnGameModeInit ()
 {
-	new level = 5;
-	if (level == 1)
+	new area1 = GetArea(5, 10);
+	new area2 = GetArea(7, 12);
+	new area3 = GetArea(8, 14);
+	new area4 = GetArea(-8, 12);
+
+	printf("Area1 = %d", area1);
+	printf("Area2 = %d", area2);
+	printf("Area3 = %d", area3);
+	printf("Area4 = %d", area4);
+
+	for (new i = 0; i < 10; i++)
 	{
-		print("Level 1");
-	}
-	else if (level == 2)
-	{
-		print("Level 2");
-	}
-	else if (level == 3)
-	{
-		print("Level 3");
-	}
-	else if (level >= 4 && level <= 6)
-	{
-		print("Level >= 4 && Level <= 6");
-	}
-	else
-	{
-		print("Level Unknown");
+		if (i == 3)
+			break;
+
+		print("a");
 	}
 
+	/*
+		Домашнее задание
+	*/
 
-	switch (level)
-	{
-		case 1: // if (level == 1)
-		{
-			print("(switch) Level 1");
-		}
-		case 2: // if (level == 2)
-		{
-			print("(switch) Level 2");
-		}
-		case 3: // if (level == 3)
-		{
-			print("(switch) Level 3");
-		}
-		case 4..6:
-		{
-			print("(switch) Level >= 4 && Level <= 6");
-		}
-		default:
-		{
-			print("(switch) Level Unknown");
-		}
-	}
-
-	new value = 0;
-	while (value < 10)
-	{
-		printf("Value = %d", value);
-		value++;
-	}
-
-	printf("Value after loop = %d", value);
-
-	value = 10;
-	do 
-	{
-		printf("Do while: %d", value);
-		value++;
-	} while (value < 10);
-
-
-	for (new i = 0; i < 10; i+=2)
-	{
-		printf("i = %d", i);
-	}
-
-
-	
-
-
-
-
-
-
-
-
-
+	new value = 10;
+	printf("Число %d является %s", value, IsEven(value) ? ("чётным") : ("нечётным"));
+	value = 21;
+	printf("Число %d является %s", value, IsEven(value) ? ("чётным") : ("нечётным"));
+	value = 0;
+	printf("Число %d является %s", value, IsEven(value) ? ("чётным") : ("нечётным"));
 
 
 
