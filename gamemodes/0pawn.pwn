@@ -3,63 +3,31 @@
 #include "streamer.inc"
 
 
+#define CALLBACK%0(%1) \
+	forward%0(%1); public%0(%1)
+
+
 main()
 {}
 
 
-GetArea (width, height)
-{
-	if (width < 0 || height < 0)
-	{
-		return 0;
-	}
 
-	new area = width * height;
-	return area;
+CALLBACK TimerTest (value, const str[])
+{
+	printf("Value = %d, %s", value, str);
 }
 
-IsEven (value)
-{
-	/*
-		Задание: Определить, является ли значение value чётным
-		Вернуть: Если чётное -   1
-		         Если нечётное - 0
-	*/
-    return 1;
-}
 
 public OnGameModeInit ()
 {
-	new area1 = GetArea(5, 10);
-	new area2 = GetArea(7, 12);
-	new area3 = GetArea(8, 14);
-	new area4 = GetArea(-8, 12);
-
-	printf("Area1 = %d", area1);
-	printf("Area2 = %d", area2);
-	printf("Area3 = %d", area3);
-	printf("Area4 = %d", area4);
-
-	for (new i = 0; i < 10; i++)
-	{
-		if (i == 3)
-			break;
-
-		print("a");
-	}
+	SetTimerEx("TimerTest", 1000, true, "is", 1, "aaaa");
 
 	/*
-		Домашнее задание
+		Домашнее задание:
+		Написать функцию с таймером, которая будет отсчитывать кол-во секунд после запуска мода
+		Через каждый 5й  раз (кратно 5)  выводить: 5  seconds
+		Через каждый 10й раз (кратно 10) выводить: 10 seconds
 	*/
-
-	new value = 10;
-	printf("Число %d является %s", value, IsEven(value) ? ("чётным") : ("нечётным"));
-	value = 21;
-	printf("Число %d является %s", value, IsEven(value) ? ("чётным") : ("нечётным"));
-	value = 0;
-	printf("Число %d является %s", value, IsEven(value) ? ("чётным") : ("нечётным"));
-
-
 
 
 
