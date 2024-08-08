@@ -11,27 +11,39 @@ main()
 {}
 
 
-
-CALLBACK TimerTest (value, const str[])
+enum pInfo
 {
-	printf("Value = %d, %s", value, str);
-}
+	pNikname[32],
+	pLevel,
+	pCash,
+	Float:pHP,
+};
 
 
 public OnGameModeInit ()
 {
-	SetTimerEx("TimerTest", 1000, true, "is", 1, "aaaa");
+	new player[pInfo] = {
+		"Don_Elino",
+		10,
+		10_000_000,
+		100.0
+	};
+
+
+	printf("Nikaname = %s, Level = %d, Cash = %d, HP = %f", player[pNikname], player[pLevel], player[pCash], player[pHP]);
+
 
 	/*
 		Домашнее задание:
-		Написать функцию с таймером, которая будет отсчитывать кол-во секунд после запуска мода
-		Через каждый 5й  раз (кратно 5)  выводить: 5  seconds
-		Через каждый 10й раз (кратно 10) выводить: 10 seconds
+		Создать структуру данных farm со значениями:
+		- fOwner (ник владельца)
+		- fProds (кол-во продуктов)
+		- fEnterX (Координаты входа: x (с плавающей точкой))
+		- fEnterY (Координаты входа: y (с плавающей точкой))
+		- fEnterZ (Координаты входа: z (с плавающей точкой))
+
+		Вывести эти данные через 5 секунд после запуска игрового мода
 	*/
-
-
-
-
 
 
 
