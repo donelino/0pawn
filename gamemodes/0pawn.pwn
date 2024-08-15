@@ -11,38 +11,103 @@ main()
 {}
 
 
-enum pInfo
+/*
+	Координаты (x, y, z),
+	Остаток
+	Доступен
+	ИД Игрока
+*/
+
+#define MAX_BUSHES 5
+
+enum Bush
 {
-	pNikname[32],
-	pLevel,
-	pCash,
-	Float:pHP,
+	Float:Bush_x,
+	Float:Bush_y,
+	Float:Bush_z,
+	Bush_remaining,
+	bool:Bush_available,
+	Bush_playerid,
 };
+
+new bushes[10][Bush] =
+{
+	// X    Y     Z     remaining,  available, playerid   
+	{ 1.0,  1.0,  10.0, MAX_BUSHES, false,     -1 },
+	{ 2.0,  2.0,  10.0, MAX_BUSHES, true,      -1 },
+	{ 3.0,  3.0,  10.0, MAX_BUSHES, false,     -1 },
+	{ 4.0,  4.0,  10.0, MAX_BUSHES, false,     -1 },
+	{ 5.0,  5.0,  10.0, MAX_BUSHES, true,      -1 },
+	{ 6.0,  6.0,  10.0, MAX_BUSHES, false,     -1 },
+	{ 7.0,  7.0,  10.0, MAX_BUSHES, true,      -1 },
+	{ 8.0,  8.0,  10.0, MAX_BUSHES, false,     -1 },
+	{ 9.0,  9.0,  10.0, MAX_BUSHES, true,      -1 },
+	{ 10.0, 10.0, 10.0, MAX_BUSHES, true,      -1 }
+};
+
+
+stock GenerateBush (playerid)
+{
+	if (!HasAvailableBushes())
+	{
+		print("No bushes available!");
+		return;
+	}
+
+	new bushid = -1;
+	do 
+	{
+		bushid = random(sizeof(bushes));
+	} while(bushes[bushid][Bush_available] == false || bushes[bushid][Bush_playerid] != -1);
+
+	bushes[bushid][Bush_playerid] = playerid;
+	PrintBush(bushid);
+}
+
+stock HasAvailableBushes ()
+{
+	for (new i = 0; i < sizeof(bushes); i++)
+	{
+		if (bushes[i][Bush_available] && bushes[i][Bush_playerid] == -1)
+			return true;
+		
+	}
+	return false;
+}
+
+stock PrintBush (id)
+{
+	printf("Bush %d. Remainig: %d, Available: %d, PlayerId: %d", id, bushes[id][Bush_remaining], bushes[id][Bush_available], bushes[id][Bush_playerid]);
+}
+
+
 
 
 public OnGameModeInit ()
 {
-	new player[pInfo] = {
-		"Don_Elino",
-		10,
-		10_000_000,
-		100.0
-	};
+	GenerateBush(0);
+	GenerateBush(1);
+	GenerateBush(2);
+	GenerateBush(3);
+	GenerateBush(4);
+	GenerateBush(5);
 
 
-	printf("Nikaname = %s, Level = %d, Cash = %d, HP = %f", player[pNikname], player[pLevel], player[pCash], player[pHP]);
+	print(" ");
+	print(" ");
+	for (new i = 0; i < sizeof(bushes); i++)
+	{
+		PrintBush(i);
+	}
 
 
 	/*
-		Домашнее задание:
-		Создать структуру данных farm со значениями:
-		- fOwner (ник владельца)
-		- fProds (кол-во продуктов)
-		- fEnterX (Координаты входа: x (с плавающей точкой))
-		- fEnterY (Координаты входа: y (с плавающей точкой))
-		- fEnterZ (Координаты входа: z (с плавающей точкой))
+		Домашнее задание
+		Дополнить код из этого урока:
+		Дописать очистку всех игроков каждую минуту с выводом в лог (print)
 
-		Вывести эти данные через 5 секунд после запуска игрового мода
+		Дополнительно*
+		Генерировать 5 новых доступных кустов 
 	*/
 
 
