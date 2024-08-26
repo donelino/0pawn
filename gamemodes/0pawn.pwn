@@ -11,104 +11,48 @@ main()
 {}
 
 
+enum pInfo
+{
+	pLevel,
+	pCash
+};
+new PlayerInfo[MAX_PLAYERS][pInfo];
+
 /*
-	Координаты (x, y, z),
-	Остаток
-	Доступен
-	ИД Игрока
+	0 1 2
+	3 4 5
+	6 7 8
+
+	new a[3][3];
+	a[0][2] // 2
+	a[2][2] // 4
 */
 
-#define MAX_BUSHES 5
-
-enum Bush
+stock PrintLvl (playerid)
 {
-	Float:Bush_x,
-	Float:Bush_y,
-	Float:Bush_z,
-	Bush_remaining,
-	bool:Bush_available,
-	Bush_playerid,
-};
-
-new bushes[10][Bush] =
-{
-	// X    Y     Z     remaining,  available, playerid   
-	{ 1.0,  1.0,  10.0, MAX_BUSHES, false,     -1 },
-	{ 2.0,  2.0,  10.0, MAX_BUSHES, true,      -1 },
-	{ 3.0,  3.0,  10.0, MAX_BUSHES, false,     -1 },
-	{ 4.0,  4.0,  10.0, MAX_BUSHES, false,     -1 },
-	{ 5.0,  5.0,  10.0, MAX_BUSHES, true,      -1 },
-	{ 6.0,  6.0,  10.0, MAX_BUSHES, false,     -1 },
-	{ 7.0,  7.0,  10.0, MAX_BUSHES, true,      -1 },
-	{ 8.0,  8.0,  10.0, MAX_BUSHES, false,     -1 },
-	{ 9.0,  9.0,  10.0, MAX_BUSHES, true,      -1 },
-	{ 10.0, 10.0, 10.0, MAX_BUSHES, true,      -1 }
-};
-
-
-stock GenerateBush (playerid)
-{
-	if (!HasAvailableBushes())
-	{
-		print("No bushes available!");
-		return;
-	}
-
-	new bushid = -1;
-	do 
-	{
-		bushid = random(sizeof(bushes));
-	} while(bushes[bushid][Bush_available] == false || bushes[bushid][Bush_playerid] != -1);
-
-	bushes[bushid][Bush_playerid] = playerid;
-	PrintBush(bushid);
+	printf("Level of Player[%d]: %d", playerid, PlayerInfo[playerid][pLevel]);
 }
-
-stock HasAvailableBushes ()
-{
-	for (new i = 0; i < sizeof(bushes); i++)
-	{
-		if (bushes[i][Bush_available] && bushes[i][Bush_playerid] == -1)
-			return true;
-		
-	}
-	return false;
-}
-
-stock PrintBush (id)
-{
-	printf("Bush %d. Remainig: %d, Available: %d, PlayerId: %d", id, bushes[id][Bush_remaining], bushes[id][Bush_available], bushes[id][Bush_playerid]);
-}
-
-
 
 
 public OnGameModeInit ()
 {
-	GenerateBush(0);
-	GenerateBush(1);
-	GenerateBush(2);
-	GenerateBush(3);
-	GenerateBush(4);
-	GenerateBush(5);
-
-
-	print(" ");
-	print(" ");
-	for (new i = 0; i < sizeof(bushes); i++)
+	for (new i = 0; i < MAX_PLAYERS; i++)
 	{
-		PrintBush(i);
+		PlayerInfo[i][pLevel] = 3;
+		PlayerInfo[i][pCash] = 10_000;
 	}
 
+	
 
-	/*
-		Домашнее задание
-		Дополнить код из этого урока:
-		Дописать очистку всех игроков каждую минуту с выводом в лог (print)
+	PrintLvl(1);
+	PrintLvl(5);
 
-		Дополнительно*
-		Генерировать 5 новых доступных кустов 
-	*/
+
+
+
+
+
+
 
 
 
